@@ -20,7 +20,9 @@ public class StrategyTiraVogais implements Strategy{
            int count=0;
           
             for (int i = 0; i < fraseArray.length; i++) {
-                if (Character.isUpperCase(fraseArray[i])) {
+                if (fraseArray[i]== 'a' || fraseArray[i]== 'A' || fraseArray[i]== 'e' || fraseArray[i]== 'E' ||
+                    fraseArray[i]== 'i' ||   fraseArray[i]== 'i' ||  fraseArray[i]== 'U' || fraseArray[i]== 'u' 
+                    || fraseArray[i] == 'o' || fraseArray[i] =='O') {
                     count ++;
                 }
             }
@@ -28,8 +30,10 @@ public class StrategyTiraVogais implements Strategy{
             char oficial[]= new char [fraseArray.length-count];
             
             for (int i = 0; i < fraseArray.length; i++) {
-            
-                if (Character.isUpperCase(fraseArray[i])) {
+             
+                if (fraseArray[i]== 'a' || fraseArray[i]== 'A' || fraseArray[i]== 'e' || fraseArray[i]== 'E' ||
+                    fraseArray[i]== 'i' ||   fraseArray[i]== 'i' ||  fraseArray[i]== 'U' || fraseArray[i]== 'u' 
+                    || fraseArray[i] == 'o' || fraseArray[i] =='O' ) {
                        
                 }else{
                     oficial[count]=fraseArray[i];
@@ -37,15 +41,15 @@ public class StrategyTiraVogais implements Strategy{
                 }
                
             }
-            System.out.println(frase);
             
-            frase="";
+            
+            frase= "";
             for (int i = 0; i < oficial.length; i++) {
                 
                 frase=frase+""+oficial[i];
                 
             }
-            System.out.println(frase);
+      
          
         
 

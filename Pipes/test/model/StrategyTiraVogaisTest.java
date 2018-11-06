@@ -44,7 +44,7 @@ public class StrategyTiraVogaisTest {
      */
     @Test
     public void testAlterarString() {
-        
-    }
+        assertEquals("qr",this.v.alterarString("quero"));
+    }   
     
 }
