@@ -6,6 +6,7 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  *
@@ -15,11 +16,11 @@ public class Modelo {
 
     private ArrayList<Strategy> strategy = new ArrayList();
 
-    private StrategyAdicionaA adicionaA;
-    private StrategyConvertMinuscula convertMinuscula;
-    private StrategyConverteMaiuscula convertMaiuscula;
-    private StrategyRemoveMaiuscula removeMaiuscula;
-    private StrategyTiraVogais tiraVogais;
+    private StrategyAdicionaA adicionaA=new StrategyAdicionaA();
+    private StrategyConvertMinuscula convertMinuscula=new StrategyConvertMinuscula();;
+    private StrategyConverteMaiuscula convertMaiuscula=new StrategyConverteMaiuscula();
+    private StrategyRemoveMaiuscula removeMaiuscula=new StrategyRemoveMaiuscula();
+    private StrategyTiraVogais tiraVogais=new StrategyTiraVogais();
     //constantes
     private final int ADICIONAA=1;
     private final int CONVERTMINUSCULA=2;
@@ -27,16 +28,12 @@ public class Modelo {
     private final int REMOVEMAIUSCULA=4;
     private final int TIRAVOGAIS=5;
     
-    private int ordem [] ;
+    private int ordem [] =new int[5];
 
     public void modelo() {
         
-        this.adicionaA = new StrategyAdicionaA();
-        this.convertMinuscula = new StrategyConvertMinuscula();
-        this.convertMaiuscula = new StrategyConverteMaiuscula();
-        this.removeMaiuscula = new StrategyRemoveMaiuscula();
-        this.tiraVogais = new StrategyTiraVogais();
-        this.ordem= new int[5];
+        
+         
     }
 
     public void add(Strategy strategy) {
@@ -77,11 +74,18 @@ public class Modelo {
         this.AdicionandoEmOrdem();
         
         for (Strategy strategy1 : this.strategy) {
-            
             frase=strategy1.alterarString(frase);
         }
         
         return frase;
+    }
+
+    public int[] getOrdem() {
+        return ordem;
+    }
+
+    public void setOrdem(int[] ordem) {
+        this.ordem = ordem;
     }
     
     
