@@ -21,6 +21,8 @@ public class Modelo {
     private StrategyConverteMaiuscula convertMaiuscula=new StrategyConverteMaiuscula();
     private StrategyRemoveMaiuscula removeMaiuscula=new StrategyRemoveMaiuscula();
     private StrategyTiraVogais tiraVogais=new StrategyTiraVogais();
+    
+    private ArrayList <Observer> observer= new ArrayList();
     //constantes
     private final int ADICIONAA=1;
     private final int CONVERTMINUSCULA=2;
@@ -34,6 +36,22 @@ public class Modelo {
         
         
          
+    }
+    
+    public void attach(Observer observer){
+        this.observer.add(observer);
+    }
+    
+    public  void dettach(Observer observer){
+        this.observer.add(observer);
+    }
+    
+    public void nofityall(){
+        for (Observer observer1 : this.observer)
+        {
+            
+            observer1.Update();
+        }
     }
 
     public void add(Strategy strategy) {
@@ -74,6 +92,7 @@ public class Modelo {
         this.AdicionandoEmOrdem();
         
         for (Strategy strategy1 : this.strategy) {
+            
             frase=strategy1.alterarString(frase);
         }
         

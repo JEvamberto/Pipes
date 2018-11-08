@@ -16,11 +16,9 @@ import static org.junit.Assert.*;
  *
  * @author jose
  */
-public class StrategyRemoveMaiusculaTest {
-    
-    private StrategyRemoveMaiuscula teste;
-    
-    public StrategyRemoveMaiusculaTest() {
+public class StrategyConvertMinusculaTest {
+    StrategyConvertMinuscula con;
+    public StrategyConvertMinusculaTest() {
     }
     
     @BeforeClass
@@ -33,7 +31,7 @@ public class StrategyRemoveMaiusculaTest {
     
     @Before
     public void setUp() {
-        teste= new StrategyRemoveMaiuscula();
+        this.con= new StrategyConvertMinuscula();
     }
     
     @After
@@ -41,17 +39,13 @@ public class StrategyRemoveMaiusculaTest {
     }
 
     /**
-     * Test of alterarString method, of class StrategyRemoveMaiuscula.
+     * Test of alterarString method, of class StrategyConvertMinuscula.
      */
     @Test
     public void testAlterarString() {
-       
-               
-        assertEquals( "uero",this.teste.alterarString("Quero"));
-       
-    }
-
-
+        
+        
+        assertEquals("hello",this.con.alterarString("HELLO"));
     }
     
-
+}

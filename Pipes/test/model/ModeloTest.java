@@ -70,6 +70,11 @@ public class ModeloTest {
      */
     @Test
     public void testTransforma() {
+         String nome = "Hello";
+        System.out.println(nome);
+      nome= nome.replace('e', 'E');
+        System.out.println(nome);
+        
         int [] ordem = new int [5];
         
         
@@ -80,8 +85,7 @@ public class ModeloTest {
         ordem[4]=5;
         assertEquals("ateste",this.modelo.transforma(ordem, "Teste"));
         
-        
-        
+      
     }
 
     /**
