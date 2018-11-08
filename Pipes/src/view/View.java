@@ -1,6 +1,8 @@
 package view;
 
 import controller.ControllerView;
+import javax.swing.JCheckBox;
+import javax.swing.JLabel;
 import model.Modelo;
 import model.Observer;
 
@@ -9,7 +11,6 @@ import model.Observer;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author jose
@@ -21,13 +22,13 @@ public class View extends javax.swing.JFrame implements Observer {
      */
     private Modelo model;
     private ControllerView controller;
-    
+
     public View(Modelo model) {
         initComponents();
-        this.model=model;
-        this.controller= new ControllerView(model,this);
+        this.model = model;
+        this.controller = new ControllerView(model, this);
         this.model.attach(this);
-        
+
     }
 
     /**
@@ -42,6 +43,7 @@ public class View extends javax.swing.JFrame implements Observer {
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
+        label_Ordem = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -71,11 +73,17 @@ public class View extends javax.swing.JFrame implements Observer {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 556, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(label_Ordem)
+                .addContainerGap(493, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 66, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(label_Ordem)
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         jPanel4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -136,12 +144,32 @@ public class View extends javax.swing.JFrame implements Observer {
         });
 
         boxConverteMinuscula.setText("Converte Minuscula");
+        boxConverteMinuscula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boxConverteMinusculaActionPerformed(evt);
+            }
+        });
 
         boxMaiuscula.setText("Converte Maiuscula");
+        boxMaiuscula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boxMaiusculaActionPerformed(evt);
+            }
+        });
 
         boxTiraVogais.setText("Tira vogais");
+        boxTiraVogais.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boxTiraVogaisActionPerformed(evt);
+            }
+        });
 
         boxRemoveMaiuscula.setText("Remove Maiusculas");
+        boxRemoveMaiuscula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boxRemoveMaiusculaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelCheckBoxLayout = new javax.swing.GroupLayout(jPanelCheckBox);
         jPanelCheckBox.setLayout(jPanelCheckBoxLayout);
@@ -247,14 +275,37 @@ public class View extends javax.swing.JFrame implements Observer {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void boxAdicionaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxAdicionaActionPerformed
-        // TODO add your handling code here:
-        
+        this.controller.TratarBox(evt);
+
+
     }//GEN-LAST:event_boxAdicionaActionPerformed
+
+    private void boxConverteMinusculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxConverteMinusculaActionPerformed
+        this.controller.TratarBox(evt);
+
+    }//GEN-LAST:event_boxConverteMinusculaActionPerformed
+
+    private void boxMaiusculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxMaiusculaActionPerformed
+        // TODO add your handling code here:
+        this.controller.TratarBox(evt);
+
+    }//GEN-LAST:event_boxMaiusculaActionPerformed
+
+    private void boxRemoveMaiusculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxRemoveMaiusculaActionPerformed
+        // TODO add your handling code here:
+        this.controller.TratarBox(evt);
+
+    }//GEN-LAST:event_boxRemoveMaiusculaActionPerformed
+
+    private void boxTiraVogaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxTiraVogaisActionPerformed
+        // TODO add your handling code here:
+        this.controller.TratarBox(evt);
+
+    }//GEN-LAST:event_boxTiraVogaisActionPerformed
 
     /**
      * @param args the command line arguments
      */
-   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox boxAdiciona;
@@ -275,10 +326,60 @@ public class View extends javax.swing.JFrame implements Observer {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanelCheckBox;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel label_Ordem;
     // End of variables declaration//GEN-END:variables
 
     @Override
     public void Update() {
-        
+
     }
+
+    public JCheckBox getBoxAdiciona() {
+        return boxAdiciona;
+    }
+
+    public void setBoxAdiciona(JCheckBox boxAdiciona) {
+        this.boxAdiciona = boxAdiciona;
+    }
+
+    public JCheckBox getBoxConverteMinuscula() {
+        return boxConverteMinuscula;
+    }
+
+    public void setBoxConverteMinuscula(JCheckBox boxConverteMinuscula) {
+        this.boxConverteMinuscula = boxConverteMinuscula;
+    }
+
+    public JCheckBox getBoxMaiuscula() {
+        return boxMaiuscula;
+    }
+
+    public void setBoxMaiuscula(JCheckBox boxMaiuscula) {
+        this.boxMaiuscula = boxMaiuscula;
+    }
+
+    public JCheckBox getBoxRemoveMaiuscula() {
+        return boxRemoveMaiuscula;
+    }
+
+    public void setBoxRemoveMaiuscula(JCheckBox boxRemoveMaiuscula) {
+        this.boxRemoveMaiuscula = boxRemoveMaiuscula;
+    }
+
+    public JCheckBox getBoxTiraVogais() {
+        return boxTiraVogais;
+    }
+
+    public void setBoxTiraVogais(JCheckBox boxTiraVogais) {
+        this.boxTiraVogais = boxTiraVogais;
+    }
+
+    public JLabel getLabel_Ordem() {
+        return label_Ordem;
+    }
+
+    public void setLabel_Ordem(JLabel label_Ordem) {
+        this.label_Ordem = label_Ordem;
+    }
+
 }
