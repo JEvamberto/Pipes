@@ -6,7 +6,7 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.Iterator;
+
 
 /**
  *
@@ -21,6 +21,8 @@ public class Modelo {
     private StrategyConverteMaiuscula convertMaiuscula=new StrategyConverteMaiuscula();
     private StrategyRemoveMaiuscula removeMaiuscula=new StrategyRemoveMaiuscula();
     private StrategyTiraVogais tiraVogais=new StrategyTiraVogais();
+    private String resultado;
+
     
     private ArrayList <Observer> observer= new ArrayList();
     //constantes
@@ -95,7 +97,8 @@ public class Modelo {
             
             frase=strategy1.alterarString(frase);
         }
-        
+        this.setResultado(frase);
+        this.nofityall();
         return frase;
     }
 
@@ -107,6 +110,12 @@ public class Modelo {
         this.ordem = ordem;
     }
     
-    
+        public String getResultado() {
+        return resultado;
+    }
+
+    public void setResultado(String resultado) {
+        this.resultado = resultado;
+    }
 
 }

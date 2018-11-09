@@ -14,12 +14,12 @@ public class StrategyConverteMaiuscula implements Strategy {
     @Override
     public String alterarString(String frase) {
         
-        if (frase != null) {
+        if (frase == null) {
             return null;    
         }else{
             
-            String maiuscula = frase.toUpperCase();
-            frase=maiuscula;
+            frase= frase.toUpperCase();
+           
             
         }
         

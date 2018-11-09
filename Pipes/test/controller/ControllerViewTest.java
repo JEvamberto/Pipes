@@ -5,14 +5,12 @@
  */
 package controller;
 
-import java.awt.event.ActionEvent;
 import model.Modelo;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 import view.View;
 
 /**
@@ -78,7 +76,7 @@ public class ControllerViewTest {
         this.controller.getOrdem()[2]=3;
         this.controller.getOrdem()[3]=4;
         this.controller.getOrdem()[4]=5;
-        int teste [] = new int[5] ;
+        int teste [] = new int[5];
         //assertEquals(teste, this.controller.addOrdem(i));
     }
     

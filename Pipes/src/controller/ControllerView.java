@@ -20,7 +20,7 @@ public class ControllerView implements Observer {
     private View view;
     private String resultado="";
     private int [] ordem = new int[5];
-    
+    private int pontador=0;
     
     public ControllerView(Modelo model, View view) {
         this.model = model;
@@ -39,6 +39,7 @@ public class ControllerView implements Observer {
             this.resultado=" "+resultado+evt.getActionCommand()+" ";
             this.view.getLabel_Ordem().setText(resultado);
             this.addOrdem(1);
+            
         }
         if ("Converte Minuscula".equals(evt.getActionCommand()) && 
                 this.view.getBoxConverteMinuscula().isSelected()) {
@@ -110,11 +111,9 @@ public class ControllerView implements Observer {
             this.RemoverOrdem(5);
         }
         
-        for (int i = 0; i < this.ordem.length; i++) {
-            System.out.print(" "+this.ordem[i] );
-        }
+      
     }
-    private int pontador=0;
+    
     public void addOrdem(int number){
         
         this.ordem[pontador]=number;
@@ -130,7 +129,7 @@ public class ControllerView implements Observer {
                 ordem[i]=0;
                 
             }
-            if (ordem[i]==0 && ordem[i+1]!=0) {
+            if (ordem[i]==0 &&( ordem.length!=(i+1)) &&  ordem[i+1]!=0) {
                 int aux;
                 
                 aux=ordem[i+1];
@@ -146,6 +145,33 @@ public class ControllerView implements Observer {
     public int[] getOrdem() {
         return ordem;
     }
+
+    public void trataBotao(ActionEvent evt) {
+        
+        
+        if ("Alterar".equals(evt.getActionCommand())) {
+            this.view.getLabelResult().setText("");
+            this.model.transforma(this.ordem, this.view.getTxtEntrada().getText());
+        }
+        if ("Limpar".equals(evt.getActionCommand())) {
+            this.limpaOrdem();
+            this.view.getBoxAdiciona().setSelected(false);
+            this.view.getBoxConverteMinuscula().setSelected(false);
+            this.view.getBoxMaiuscula().setSelected(false);
+            this.view.getBoxRemoveMaiuscula().setSelected(false);
+            this.view.getBoxTiraVogais().setSelected(false);
+            this.view.getTxtEntrada().setText("");
+            this.view.getLabel_Ordem().setText("");
+            this.view.getLabelResult().setText("");
+            this.resultado="";
+        }
+    }
     
+    public void limpaOrdem(){
+        for (int i = 0; i < this.ordem.length; i++) {
+           this.ordem[i]=0;
+        }
+        this.pontador=0;
+    }
     
 }

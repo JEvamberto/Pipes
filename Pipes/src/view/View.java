@@ -3,6 +3,7 @@ package view;
 import controller.ControllerView;
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
+import javax.swing.JTextField;
 import model.Modelo;
 import model.Observer;
 
@@ -45,6 +46,7 @@ public class View extends javax.swing.JFrame implements Observer {
         jPanel3 = new javax.swing.JPanel();
         label_Ordem = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
+        labelResult = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jPanelCheckBox = new javax.swing.JPanel();
@@ -54,7 +56,7 @@ public class View extends javax.swing.JFrame implements Observer {
         boxTiraVogais = new javax.swing.JCheckBox();
         boxRemoveMaiuscula = new javax.swing.JCheckBox();
         jPanel2 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
+        txtEntrada = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
@@ -64,10 +66,13 @@ public class View extends javax.swing.JFrame implements Observer {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        jLabel1.setText("PIPES");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, -1, -1));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Pipes.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, -20, -1, -1));
 
         jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel3.setPreferredSize(new java.awt.Dimension(560, 70));
+
+        label_Ordem.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -76,32 +81,42 @@ public class View extends javax.swing.JFrame implements Observer {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(label_Ordem)
-                .addContainerGap(493, Short.MAX_VALUE))
+                .addContainerGap(544, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addComponent(label_Ordem)
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         jPanel4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel4.setPreferredSize(new java.awt.Dimension(560, 70));
 
+        labelResult.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 556, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addComponent(labelResult)
+                .addContainerGap(517, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 66, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(labelResult)
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
+        jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel4.setText("Resultado:");
 
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel3.setText("Ordem Escolhida:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -134,8 +149,9 @@ public class View extends javax.swing.JFrame implements Observer {
                 .addGap(18, 18, 18))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, -1, 230));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, -1, 230));
 
+        boxAdiciona.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         boxAdiciona.setText("Adiciona A");
         boxAdiciona.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -143,6 +159,7 @@ public class View extends javax.swing.JFrame implements Observer {
             }
         });
 
+        boxConverteMinuscula.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         boxConverteMinuscula.setText("Converte Minuscula");
         boxConverteMinuscula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -150,6 +167,7 @@ public class View extends javax.swing.JFrame implements Observer {
             }
         });
 
+        boxMaiuscula.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         boxMaiuscula.setText("Converte Maiuscula");
         boxMaiuscula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -157,6 +175,7 @@ public class View extends javax.swing.JFrame implements Observer {
             }
         });
 
+        boxTiraVogais.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         boxTiraVogais.setText("Tira vogais");
         boxTiraVogais.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -164,6 +183,7 @@ public class View extends javax.swing.JFrame implements Observer {
             }
         });
 
+        boxRemoveMaiuscula.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         boxRemoveMaiuscula.setText("Remove Maiusculas");
         boxRemoveMaiuscula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -205,11 +225,12 @@ public class View extends javax.swing.JFrame implements Observer {
                 .addGroup(jPanelCheckBoxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(boxRemoveMaiuscula)
                     .addComponent(boxTiraVogais))
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanelCheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, -1, 90));
+        getContentPane().add(jPanelCheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, 90));
 
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel2.setText("Entrada:");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -217,24 +238,25 @@ public class View extends javax.swing.JFrame implements Observer {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(41, 41, 41)
                 .addComponent(jLabel2)
-                .addGap(69, 69, 69)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addGap(40, 40, 40)
+                .addComponent(txtEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addGap(68, 68, 68))
         );
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 540, 80));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 570, 80));
 
+        jButton1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jButton1.setText("Alterar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -242,7 +264,13 @@ public class View extends javax.swing.JFrame implements Observer {
             }
         });
 
+        jButton2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jButton2.setText("Limpar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -253,7 +281,7 @@ public class View extends javax.swing.JFrame implements Observer {
                 .addComponent(jButton2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -265,13 +293,14 @@ public class View extends javax.swing.JFrame implements Observer {
                 .addContainerGap(34, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 500, 210, -1));
+        getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 540, 210, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        this.controller.trataBotao(evt);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void boxAdicionaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxAdicionaActionPerformed
@@ -303,9 +332,15 @@ public class View extends javax.swing.JFrame implements Observer {
 
     }//GEN-LAST:event_boxTiraVogaisActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        this.controller.trataBotao(evt);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
+
+  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox boxAdiciona;
@@ -325,13 +360,14 @@ public class View extends javax.swing.JFrame implements Observer {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanelCheckBox;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel labelResult;
     private javax.swing.JLabel label_Ordem;
+    private javax.swing.JTextField txtEntrada;
     // End of variables declaration//GEN-END:variables
 
     @Override
     public void Update() {
-
+           this.labelResult.setText(model.getResultado());
     }
 
     public JCheckBox getBoxAdiciona() {
@@ -358,6 +394,14 @@ public class View extends javax.swing.JFrame implements Observer {
         this.boxMaiuscula = boxMaiuscula;
     }
 
+    public JTextField getTxtEntrada() {
+        return txtEntrada;
+    }
+
+    public void setTxtEntrada(JTextField txtEntrada) {
+        this.txtEntrada = txtEntrada;
+    }
+
     public JCheckBox getBoxRemoveMaiuscula() {
         return boxRemoveMaiuscula;
     }
@@ -381,5 +425,12 @@ public class View extends javax.swing.JFrame implements Observer {
     public void setLabel_Ordem(JLabel label_Ordem) {
         this.label_Ordem = label_Ordem;
     }
+      public JLabel getLabelResult() {
+        return labelResult;
+    }
 
+    public void setLabelResult(JLabel labelResult) {
+        this.labelResult = labelResult;
+    }
+  
 }
